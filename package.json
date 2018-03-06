@@ -1,6 +1,6 @@
 {
   "name": "brain-games-strekanov",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
@@ -24,12 +24,14 @@
     "url": "https://github.com/StrekanovAlexander/project-lvl1-s232/issues"
   },
   "homepage": "https://github.com/StrekanovAlexander/project-lvl1-s232#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "readline-sync": "^1.4.9"
+    "babel-preset-stage-0": "^6.24.1"
   },
   "description": ""
 }
