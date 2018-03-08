@@ -22,5 +22,6 @@ const calcPair = (pair, oper) => {
 };
 
 const operToString = (pair, oper) => `${car(pair)} ${oper} ${cdr(pair)}`;
+const pairToString = (pair) => `${car(pair)} ${cdr(pair)}`;
 
-export { cons, car, cdr, calcPair, operToString };
+export { cons, car, cdr, calcPair, operToString, pairToString };
