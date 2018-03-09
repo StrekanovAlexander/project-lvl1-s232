@@ -12,7 +12,18 @@ const printStr = str => {
 
 const appHeader = 'Welcome to the Brain Games';
 const greetPlayer = (playerName) => `Hello, ${playerName}`;
-const getRand = (max) => Math.floor(Math.random() * max + 1)
+
+const printCongrat = (count, countCorrect, playerName) => {
+  if (count === countCorrect) {
+    printStr(`Congratulations, ${playerName}!`);
+  }
+};
+
+const printWrong = (answer, answerCorrect, playerName) => {
+    printStr(`'${answer}' is wrong answer ;(. Correct answer was ${answerCorrect}. Let's try again, ${playerName}`);
+};
+
+const getRand = (min, max) => Math.floor((Math.random() * max) + min);
 
 const getCalc = () => {
   const arrOper = ['+', '-', '*'];
@@ -24,8 +35,8 @@ const getCalc = () => {
   let answer;
   let counter = 0, counterCorrect = 0;
   while (counter < 3) {
-      pair = cons(getRand(10), getRand(10));
-      oper = arrOper[getRand(3)];
+      pair = cons(getRand(1, 10), getRand(1, 10));
+      oper = arrOper[getRand(0, 3)];
       printStr(`Question ${operToString(pair, oper)}`);
       answer = getAnswer('Your answer: ');
       if (Number(answer) === calcPair(pair, oper)) {
@@ -33,13 +44,11 @@ const getCalc = () => {
         counterCorrect += 1;
       }
       else{
-        printStr(`'${answer}' is wrong answer ;(. Correct answer was ${calcPair(pair, oper)}. Let's try again, ${playerName}`);
+        printWrong(answer, calcPair(pair, oper), playerName);
       }
       counter += 1;
   }
-  if (counter === counterCorrect) {
-      printStr(`Congratulations, ${playerName}!`);
-  }
+  printCongrat(counter, counterCorrect, playerName);
 };
 
 const getGcd = () => {
@@ -54,7 +63,7 @@ const getGcd = () => {
   };
 
   const getResult = (arr1, arr2) => {
-    let result = 0;
+    let result = 1;
     for (let i = 0; i < arr1.length; i += 1) {
       for (let j = 0; j < arr2.length; j += 1) {
           if (arr1[i] === arr2[j]){
@@ -62,7 +71,7 @@ const getGcd = () => {
             break;
           }
       }
-      if (result > 0) {
+      if (result > 1) {
         break;
       }
     }
@@ -78,7 +87,7 @@ const getGcd = () => {
   let answer;
   let counter = 0, counterCorrect = 0;
   while (counter < 3) {
-      pair = cons(getRand(100), getRand(100));
+      pair = cons(getRand(1, 100), getRand(1, 100));
       result = getResult(getArr(car(pair)), getArr(cdr(pair)));
       printStr(`Question ${pairToString(pair)}`);
       answer = getAnswer('Your answer: ');
@@ -87,13 +96,11 @@ const getGcd = () => {
         counterCorrect += 1;
       }
       else{
-        printStr(`'${answer}' is wrong answer ;(. Correct answer was ${result}. Let's try again, ${playerName}`);
+        printWrong(answer, result, playerName);
       }
       counter += 1;
   }
-  if (counter === counterCorrect) {
-      printStr(`Congratulations, ${playerName}!`);
-  }
-}
+  printCongrat(counter, counterCorrect, playerName);
+};
 
 export { getAnswer, getCorrectAnswer, isCorrectAnswer, getCalc, getGcd };
