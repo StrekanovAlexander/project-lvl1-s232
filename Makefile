@@ -20,14 +20,10 @@ start2:
 	npm run babel-node -- src/bin/brain-even.js
 
 start3:
-		npm run babel-node -- src/bin/brain-calc.js
+	npm run babel-node -- src/bin/brain-calc.js
 
 start4:
-<<<<<<< HEAD
-				npm run babel-node -- src/bin/brain-gcd.js
-=======
-		npm run babel-node -- src/bin/brain-gcd.js
->>>>>>> 4c2846e49afa7910cf098bb1730d70e93c16c416
+	npm run babel-node -- src/bin/brain-gcd.js
 
 publish:
 	npm publish
