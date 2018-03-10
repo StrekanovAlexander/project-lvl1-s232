@@ -1,11 +1,38 @@
 import readlineSync from 'readline-sync';
 import { cons, car, cdr, calcPair, operToString, pairToString, getArrGcd, getResultGcd } from './pair.js';
 
-const getAnswer = quest => readlineSync.question(quest);
-const isNumEven = num => num % 2 === 0 ? true : false;
-const getCorrectAnswer = num => isNumEven(num) ? 'yes' : 'no';
-const isCorrectAnswer = (answ, correctAnsw) => answ === correctAnsw ? true : false;
+console.log('Welcome to the Brain Games');
 
+<<<<<<< HEAD
+export const greetUser = () => {
+  const playerName = readlineSync.question('May I have your name? ');
+  console.log(`Hi, ${playerName}`);
+};
+
+const runGame = (taskHeader, task)  => {
+  let counter = 0, counterCorrect = 0;
+  console.log(taskHeader);
+  const playerName = readlineSync.question('May I have your name? ');
+  console.log(`Hi, ${playerName}`);
+  while (counter < 3) {
+    const theTask = task();
+    console.log(`Question: ${theTask.quest}`);
+    const answer = readlineSync.question(`Your answer: `);
+    if (answer === theTask.answ) {
+      console.log('Correct!');
+      counterCorrect += 1;
+    }
+    else {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${theTask.answ}'. Let's try again, ${playerName}`);
+    }
+    counter += 1;
+  }
+  if (counter === counterCorrect) {
+    console.log(`Congratulations, ${playerName}!`);
+  }
+};
+export default runGame;
+=======
 const printStr = str => {
   console.log(str);
 };
@@ -104,3 +131,4 @@ const getGcd = () => {
 };
 
 export { getAnswer, getCorrectAnswer, isCorrectAnswer, getCalc, getGcd };
+>>>>>>> 4c2846e49afa7910cf098bb1730d70e93c16c416
