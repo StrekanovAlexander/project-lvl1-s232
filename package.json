@@ -1,6 +1,6 @@
 {
   "name": "brain-games-strekanov",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
