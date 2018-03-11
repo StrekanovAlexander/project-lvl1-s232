@@ -3,28 +3,21 @@ import runGame from '..';
 
 const taskHeader = 'Balance the given number\n';
 
-const getBalance = (num) => {
-  const arr = String(num).split('').sort().map(Number);
-  const arrLen = arr.length - 1;
-  if (arrLen > 0) {
-    while ((arr[arrLen] - arr[0]) > 1) {
-      for (let i = 0; i <= arrLen - 1; i += 1) {
-        if (arr[i + 1] >= arr[i]) {
-          if (arr[i + 1] - arr[i] >= 1) {
-            arr[i] += 1;
-            arr[i + 1] -= 1;
-          }
-        }
-      }
-      arr.sort();
-    }
-  }
-  return arr.join('');
+const getBalance = (arr) => {
+   arr.sort();
+   if (arr[arr.length - 1] - arr[0] <= 1) {
+       return arr;
+   }
+   arr[0] += 1;
+   arr[arr.length - 1] -= 1;
+   return getBalance(arr);
 };
 
 const task = () => {
   const num = getRand(1, 100);
-  const answ = String(getBalance(num));
+  const arr = String(num).split('').sort().map(Number);
+  const result = getBalance(arr).join('');
+  const answ = String(result);
   return { quest: `${num}`, answ };
 };
 
