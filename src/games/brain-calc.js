@@ -1,5 +1,6 @@
 import { getRand } from '../other/lib';
 import { cons, car, cdr, calcPair } from '../other/pair';
+import runGame from '..';
 
 const taskHeader = 'What is the result of expression\n';
 const arrOper = ['+', '-', '*'];
@@ -11,4 +12,4 @@ const task = () => {
   return { quest: `${car(pair)} ${oper} ${cdr(pair)}`, answ };
 };
 
-export { taskHeader, task }
+export default () => runGame(taskHeader, task);

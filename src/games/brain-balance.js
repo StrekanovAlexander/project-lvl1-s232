@@ -1,4 +1,5 @@
 import { getRand } from '../other/lib';
+import runGame from '..';
 
 const taskHeader = 'Balance the given number\n';
 
@@ -27,4 +28,4 @@ const task = () => {
   return { quest: `${num}`, answ };
 };
 
-export { taskHeader, task }
+export default () => runGame(taskHeader, task);

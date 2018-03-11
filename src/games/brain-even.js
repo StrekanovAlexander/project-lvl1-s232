@@ -1,4 +1,5 @@
 import { getRand, isNumEven } from '../other/lib';
+import runGame from '..';
 
 const taskHeader = 'Answer "yes" if number even otherwise answer "no".\n';
 
@@ -9,4 +10,4 @@ const task = () => {
   return { quest: `${num}`, answ};
 };
 
-export { taskHeader, task }
+export default () => runGame(taskHeader, task);
